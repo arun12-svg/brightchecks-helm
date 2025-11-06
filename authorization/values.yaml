@@ -1,0 +1,27 @@
+image:
+  repository: emindsguardians/etl-authorization
+  tag: v1
+
+service:
+  port: 8083
+  nodePort: 30803
+  type: NodePort
+
+command: ["npm", "run", "server"]
+
+dns:
+  - 10.0.0.99
+  - 8.8.8.8
+
+volumeMounts:
+  - name: env-file
+    mountPath: /em-etl-authorization/.env
+    subPath: .env
+
+volumes:
+  - name: env-file
+    configMap:
+      name: authorization-env
+
+env:
+  NODE_EXTRA_CA_CERTS: /usr/local/share/ca-certificates/brightchecksrootCA.crt

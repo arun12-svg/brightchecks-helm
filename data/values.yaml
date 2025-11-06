@@ -1,0 +1,23 @@
+image:
+  repository: emindsguardians/etl-data
+  tag: v1
+
+service:
+  port: 8005
+  nodePort: 30806
+  type: NodePort
+
+command: ["sh", "entrypoint.sh"]
+
+volumeMounts:
+  - name: data-config
+    mountPath: /data/.env
+    subPath: .env
+  - name: data-config
+    mountPath: /data/main.py
+    subPath: main.py
+
+volumes:
+  - name: data-config
+    configMap:
+      name: data-config

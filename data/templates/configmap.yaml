@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: data-config
+  namespace: brightchecks
+data:
+  .env: |
+{{ .Files.Get ".env.data" | indent 4 }}
+
+  main.py: |
+{{ .Files.Get "main.py" | indent 4 }}

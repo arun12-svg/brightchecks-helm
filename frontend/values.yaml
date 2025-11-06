@@ -1,0 +1,30 @@
+image:
+  repository: emindsguardians/etl-frontend
+  tag: v1
+
+service:
+  port: 3000
+  nodePort: 30300
+  type: NodePort
+
+command:
+  - sh
+  - -c
+  - npm run start -- --host 0.0.0.0 --port 3000
+
+dns:
+  - 10.0.0.99
+  - 8.8.8.8
+
+volumeMounts:
+  - name: env-file
+    mountPath: /em-etl-frontend/.env
+    subPath: .env
+
+volumes:
+  - name: env-file
+    configMap:
+      name: frontend-env
+
+env:
+  NODE_EXTRA_CA_CERTS: /usr/local/share/ca-certificates/brightchecksrootCA.crt

@@ -1,0 +1,13 @@
+image:
+  repository: emindsguardians/etl-ai
+  tag: v1
+
+service:
+  port: 8005
+  nodePort: 30807   # Alternate port (different from data)
+  type: NodePort
+
+command: ["python3.11", "main.py"]
+
+volumeMounts: []
+volumes: []

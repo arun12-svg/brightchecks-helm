@@ -1,0 +1,24 @@
+image:
+  repository: emindsguardians/etl-data-flink
+  tag: v1
+
+service:
+  port: 8085
+  nodePort: 30805
+  type: NodePort
+
+command: ["python3.10", "main.py"]
+
+volumeMounts:
+  - name: flink-env
+    mountPath: /em-etl-data/stream/config/.env
+    subPath: .env
+
+volumes:
+  - name: flink-env
+    configMap:
+      name: flink-env
+
+dns:
+  - 10.0.0.99
+  - 8.8.8.8

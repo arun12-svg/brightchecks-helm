@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-env
+  namespace: {{ .Release.Namespace }}
+data:
+  .env: |
+{{ .Files.Get ".env" | indent 4 }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-entrypoint
+  namespace: {{ .Release.Namespace }}
+data:
+  entrypoint.sh: |
+{{ .Files.Get "entrypoint.sh" | indent 4 }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-props
+  namespace: {{ .Release.Namespace }}
+data:
+  properties.ini: |
+{{ .Files.Get "properties.ini" | indent 4 }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: celery-env
+  namespace: {{ .Release.Namespace }}
+data:
+  .env: |
+{{ .Files.Get "celery/.env" | indent 4 }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: celery-config
+  namespace: {{ .Release.Namespace }}
+data:
+  config.py: |
+{{ .Files.Get "celery/config.py" | indent 4 }}

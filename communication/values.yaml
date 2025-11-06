@@ -1,0 +1,17 @@
+image:
+  repository: emindsguardians/etl-communication
+  tag: v1
+
+service:
+  port: 8000
+  nodePort: 30800
+  type: NodePort
+
+command: ["npm", "run", "server"]
+
+dns:
+  - 10.0.0.99
+  - 8.8.8.8
+
+env:
+  NODE_EXTRA_CA_CERTS: /usr/local/share/ca-certificates/brightchecksrootCA.crt

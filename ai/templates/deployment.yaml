@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai
+  template:
+    metadata:
+      labels:
+        app: ai
+    spec:
+{{- if .Values.dns }}
+      dnsConfig:
+        nameservers:
+{{ toYaml .Values.dns | nindent 8 }}
+{{- end }}
+      containers:
+        - name: ai
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+{{- if .Values.command }}
+          command:
+{{ toYaml .Values.command | nindent 12 }}
+{{- end }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+{{- if .Values.volumeMounts }}
+          volumeMounts:
+{{ toYaml .Values.volumeMounts | nindent 12 }}
+{{- end }}
+      volumes:
+{{- if .Values.volumes }}
+{{ toYaml .Values.volumes | nindent 8 }}
+{{- end }}

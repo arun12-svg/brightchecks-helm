@@ -1,0 +1,27 @@
+image:
+  repository: emindsguardians/etl-gateway
+  tag: v1
+
+service:
+  port: 8082
+  nodePort: 30802
+  type: NodePort
+
+command: ["npm", "start"]
+
+dns:
+  - 10.0.0.99
+  - 8.8.8.8
+
+volumeMounts:
+  - name: env-file
+    mountPath: /em-etl-gateway/.env
+    subPath: .env
+
+volumes:
+  - name: env-file
+    configMap:
+      name: gateway-env
+
+env:
+  NODE_EXTRA_CA_CERTS: /usr/local/share/ca-certificates/brightchecksrootCA.crt

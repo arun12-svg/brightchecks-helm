@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-config
+  namespace: brightchecks
+data:
+  main.py: |
+{{ .Files.Get "main.py" | indent 4 }}

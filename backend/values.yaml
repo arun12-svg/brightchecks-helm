@@ -1,0 +1,48 @@
+image:
+  repository: emindsguardians/etlbackend
+  tag: v2
+
+service:
+  port: 5006
+  nodePort: 30506
+  type: NodePort
+
+command: ["bash", "-c", "bash /em-etl-backend/entrypoint.sh"]
+
+dns:
+  - 10.0.0.99
+  - 8.8.8.8
+
+volumeMounts:
+  - name: env-backend
+    mountPath: /em-etl-backend/.env
+    subPath: .env
+  - name: entrypoint
+    mountPath: /em-etl-backend/entrypoint.sh
+    subPath: entrypoint.sh
+  - name: env-celery
+    mountPath: /em-etl-backend/src/celery_app/.env
+    subPath: .env
+  - name: config-py
+    mountPath: /em-etl-backend/src/celery_app/helpers/config.py
+    subPath: config.py
+  - name: props
+    mountPath: /em-etl-backend/src/properties/local_properties.ini
+    subPath: properties.ini
+
+volumes:
+  - name: env-backend
+    configMap:
+      name: backend-env
+  - name: entrypoint
+    configMap:
+      name: backend-entrypoint
+  - name: env-celery
+    configMap:
+      name: celery-env
+  - name: config-py
+    configMap:
+      name: celery-config
+  - name: props
+    configMap:
+      name: backend-props

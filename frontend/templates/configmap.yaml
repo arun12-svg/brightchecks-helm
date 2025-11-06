@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-env
+  namespace: brightchecks
+data:
+  .env: |
+{{ .Files.Get ".env.frontend.dev" | indent 4 }}

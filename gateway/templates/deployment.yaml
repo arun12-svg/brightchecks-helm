@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      dnsConfig:
+        nameservers: {{ toYaml .Values.dns | nindent 8 }}
+      containers:
+        - name: gateway
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: {{ toYaml .Values.command | nindent 10 }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          env:
+            - name: NODE_EXTRA_CA_CERTS
+              value: "{{ .Values.env.NODE_EXTRA_CA_CERTS }}"
+          volumeMounts:
+            {{- toYaml .Values.volumeMounts | nindent 12 }}
+      volumes:
+        {{- toYaml .Values.volumes | nindent 8 }}

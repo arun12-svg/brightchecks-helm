@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: authentication-env
+  namespace: brightchecks
+data:
+  .env: |
+{{ .Files.Get ".env.auth.dev" | indent 4 }}
