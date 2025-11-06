@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: authentication-env
-  namespace: brightchecks
+  namespace: {{ .Release.Namespace }}
 data:
   .env: |
 {{ .Files.Get ".env.auth.dev" | indent 4 }}

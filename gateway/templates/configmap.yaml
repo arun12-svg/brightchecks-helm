@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: gateway-env
-  namespace: brightchecks
+  namespace: {{ .Release.Namespace }}
 data:
   .env: |
 {{ .Files.Get ".env.gateway.dev" | indent 4 }}

@@ -1,0 +1,102 @@
+apiVersion: v1
+entries:
+  ai:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-11-06T06:38:26.888983721Z"
+    description: BrightChecks ETL AI Service
+    digest: ec5aacfe89c814b9bad7491b4f64b3becafe12d0e4b3e0e7f2d991303b235bac
+    name: ai
+    type: application
+    urls:
+    - https://arun12-svg.github.io/brightchecks-helm/ai-0.1.0.tgz
+    version: 0.1.0
+  authentication:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-11-06T06:38:26.889677234Z"
+    description: BrightChecks ETL Authentication Service
+    digest: 0c1a72da627a9eabaddf4f642dcb2e8c0a14b21875d4089d9b71e84965f0a40f
+    name: authentication
+    type: application
+    urls:
+    - https://arun12-svg.github.io/brightchecks-helm/authentication-0.1.0.tgz
+    version: 0.1.0
+  authorization:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-11-06T06:38:26.890248339Z"
+    description: BrightChecks ETL Authorization Service
+    digest: 8ad48103b36aaa8aecc05e6df3469c99ebf9a1975ed5f8d0718146ab25922ee6
+    name: authorization
+    type: application
+    urls:
+    - https://arun12-svg.github.io/brightchecks-helm/authorization-0.1.0.tgz
+    version: 0.1.0
+  backend:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-11-06T06:38:26.891066148Z"
+    description: BrightChecks ETL Backend Service
+    digest: 2cf6445f9377a2e1e4bbb804bb6bb4f7a8956f8e849148207f3383880b0a09de
+    name: backend
+    type: application
+    urls:
+    - https://arun12-svg.github.io/brightchecks-helm/backend-0.1.0.tgz
+    version: 0.1.0
+  communication:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-11-06T06:38:26.891458341Z"
+    description: BrightChecks ETL Communication Service
+    digest: d3300fe536484146674ee64211b66cbe671c41cc357860a69e027b98bedf463b
+    name: communication
+    type: application
+    urls:
+    - https://arun12-svg.github.io/brightchecks-helm/communication-0.1.0.tgz
+    version: 0.1.0
+  data:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-11-06T06:38:26.892081192Z"
+    description: BrightChecks ETL Data Service
+    digest: e7e68c250a558f46e83264ec4e707b2275c75c01982c4c55b4bff8ee259547ba
+    name: data
+    type: application
+    urls:
+    - https://arun12-svg.github.io/brightchecks-helm/data-0.1.0.tgz
+    version: 0.1.0
+  flink:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-11-06T06:38:26.892693073Z"
+    description: BrightChecks ETL Flink Service
+    digest: 943ba3c494dc0c7acbd09a4ff1c7ce3bc76e71a6a73434f4e40d3cff47e39e73
+    name: flink
+    type: application
+    urls:
+    - https://arun12-svg.github.io/brightchecks-helm/flink-0.1.0.tgz
+    version: 0.1.0
+  frontend:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-11-06T06:38:26.893248248Z"
+    description: BrightChecks ETL Frontend Service
+    digest: 5f489a0ac75c0591550685d694923bd1dde70df246cf0ec5eff82797acd461c8
+    name: frontend
+    type: application
+    urls:
+    - https://arun12-svg.github.io/brightchecks-helm/frontend-0.1.0.tgz
+    version: 0.1.0
+  gateway:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2025-11-06T06:38:26.893608585Z"
+    description: BrightChecks ETL Gateway Service
+    digest: c3a72530c2099853b78c48b52d156530899269dd981796ef3ce939e444e7c99d
+    name: gateway
+    type: application
+    urls:
+    - https://arun12-svg.github.io/brightchecks-helm/gateway-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-11-06T06:38:26.887972628Z"

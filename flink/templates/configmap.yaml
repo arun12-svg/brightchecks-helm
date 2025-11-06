@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: flink-env
-  namespace: brightchecks
+  namespace: {{ .Release.Namespace }}
 data:
   .env: |
 {{ .Files.Get "data-flink/.env" | indent 4 }}
